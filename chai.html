@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>For Chaima 💖</title>
+    <style>
+        body {
+            background: linear-gradient(pink, #ff66b2);
+            text-align: center;
+            padding-top: 150px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+        }
+        h1 {
+            color: #cc0066;
+            font-size: 60px;
+            text-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+            animation: heartbeat 1s infinite;
+        }
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        h2 {
+            color: #990033;
+            font-size: 35px;
+            margin: 30px 0;
+        }
+        .yes-btn {
+            padding: 25px 50px;
+            font-size: 30px;
+            background: linear-gradient(to bottom, #ff0066, #cc0052);
+            color: white;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            margin: 20px;
+            box-shadow: 0 10px 20px rgba(255,0,102,0.3);
+            transition: all 0.3s;
+        }
+        .yes-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 30px rgba(255,0,102,0.5);
+        }
+        .no-btn {
+            padding: 15px 30px;
+            font-size: 20px;
+            background: #888;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>💖 CHAIMA 💖</h1>
+    <h2>Will you be my Valentine? 💝</h2>
+    
+    <button class="yes-btn" onclick="sayYes()">YES! I'D LOVE TO! 🥰💕</button>
+    <br><br>
+    <button class="no-btn" onmouseover="runAway(this)">Maybe Later? 😅</button>
+    
+    <script>
+        function sayYes() {
+            alert("Yay! You made me the happiest! I love you! 💕❤️");
+            document.body.innerHTML += '<h3 style="color:#cc0066;font-size:30px;margin-top:40px">💝 You said YES! 💝</h3>';
+            document.querySelector('.yes-btn').innerHTML = "🎉 THANK YOU! 🎉";
+            
+            // Add hearts
+            for(let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    let heart = document.createElement('div');
+                    heart.innerHTML = '💖';
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * 100 + 'vw';
+                    heart.style.top = Math.random() * 100 + 'vh';
+                    heart.style.fontSize = (Math.random() * 30 + 20) + 'px';
+                    heart.style.opacity = '0.8';
+                    document.body.appendChild(heart);
+                }, i * 100);
+            }
+        }
+        
+        function runAway(btn) {
+            btn.style.position = 'absolute';
+            btn.style.left = Math.random() * (window.innerWidth - 150) + 'px';
+            btn.style.top = Math.random() * (window.innerHeight - 50) + 'px';
+        }
+    </script>
+</body>
+</html>
